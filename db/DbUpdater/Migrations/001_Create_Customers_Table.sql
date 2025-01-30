@@ -1,0 +1,9 @@
+﻿CREATE TABLE [Customers]
+(
+    [CustomerId] INTEGER CONSTRAINT 'PK_Customers' PRIMARY KEY AUTOINCREMENT,
+    [Name] NVARCHAR(500) NOT NULL,
+    [Email] NVARCHAR(500) NOT NULL,
+    [Address] NVARCHAR(500) NOT NULL,
+    [PhoneNumber] NVARCHAR(500) NOT NULL
+);
+
