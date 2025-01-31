@@ -1,4 +1,4 @@
-using Autoshop.Application.Queries;
+using Autoshop.Application.Commands;
 using MediatR;
 using Autoshop.Application.Common.Models;
 using Microsoft.Extensions.Logging;
@@ -27,23 +27,20 @@ namespace Autoshop.Application.Customer
             {
                 GetCustomersResponse result = new GetCustomersResponse();
 
-                //make db call
-                // Entities.Customer customer;
+                Entities.Customer customer = await _mediator.Send(new UpsertCustomerCommand.Command { 
+                    Name = request.CreateRequest.Name,
+                    Email = request.CreateRequest.Email,
+                    PhoneNumber = request.CreateRequest.PhoneNumber,
+                    Address = request.CreateRequest.Address 
+                });
 
-                // customer = await _mediator.Send(new GetCustomersQuery.Command { Name = request.Name });
+                //TODO: Use Mapper here
 
-                // //TODO: Use Mapper here
-
-                // foreach(var customer in customerList)
-                // {
-                //     result.Add(new GetCustomersResponse {
-                //         CustomerId = customer.CustomerId,
-                //         Name = customer.Name,
-                //         Email = customer.Email,
-                //         Address = customer.Address,
-                //         PhoneNumber = customer.PhoneNumber
-                //     });
-                // }
+                result.CustomerId = customer.CustomerId;
+                result.Name = customer.Name;
+                result.Email = customer.Email;
+                result.Address = customer.Address;
+                result.PhoneNumber = customer.PhoneNumber;
 
                 return result;
             }

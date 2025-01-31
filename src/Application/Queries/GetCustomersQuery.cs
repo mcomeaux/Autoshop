@@ -26,9 +26,9 @@ namespace Autoshop.Application.Queries
                 
                 List<Entities.Customer> customers;
 
-                customers = await _dbContext.Customers.Where(c => c.Name.ToLowerInvariant().Contains(request.Name.ToLowerInvariant()))
+                customers = await _dbContext.Customers.Where(c => c.Name.ToLower().Contains(request.Name.ToLower()))
                         .OrderBy(c => c.Name)
-                        .ToListAsync();
+                        .ToListAsync(cancellationToken: cancellationToken);
 
                 return customers;
             }

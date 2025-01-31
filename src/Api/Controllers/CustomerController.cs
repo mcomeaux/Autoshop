@@ -26,7 +26,7 @@ namespace Autoshop.Api.Controllers
         [HttpGet]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
-        public async Task<ActionResult<GetCustomersResponse>> GetCustomers([FromQuery, BindRequired] string name) =>
+        public async Task<ActionResult<GetCustomersResponse>> GetCustomers([FromQuery] string name = "") =>
             Accepted(await Mediator.Send(new GetCustomers.Command { Name = name }));
 
 
