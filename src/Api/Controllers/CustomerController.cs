@@ -43,10 +43,10 @@ namespace Autoshop.Api.Controllers
         public async Task<ActionResult<GetCustomersResponse>> CreateCustomer([FromBody] CustomerRequest request) =>
             Accepted(await Mediator.Send(new CreateCustomer.Command { CreateRequest = request }));
 
-        // [HttpPut]
-        // [ProducesResponseType(200)]
-        // public async Task<ActionResult<GetCustomersResponse>> UpdateCustomer([FromBody] CustomerRequest request) =>
-        //     Accepted(await Mediator.Send(new UpdateCustomer.Command { UpdateRequest = request }));
+        [HttpPut]
+        [ProducesResponseType(200)]
+        public async Task<ActionResult<GetCustomersResponse>> UpdateCustomer([FromBody] CustomerRequest request) =>
+            Accepted(await Mediator.Send(new UpdateCustomer.Command { UpdateRequest = request }));
 
     }
 }

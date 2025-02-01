@@ -9,7 +9,7 @@ namespace Autoshop.Application.Commands
     {
         public class Command : IRequest<Entities.Customer>
         {
-            public int CustomerId { get; set; }
+            public int? CustomerId { get; set; }
             public string Name { get; set; }
             public string Email { get; set; }
             public string PhoneNumber { get; set; }
@@ -26,20 +26,36 @@ namespace Autoshop.Application.Commands
             }
             public async Task<Entities.Customer> Handle(Command request, CancellationToken cancellationToken)
             {
-                var customer = await _dbContext.Customers.AddAsync(new Entities.Customer
+                Entities.Customer customer;
+                if(request.CustomerId != null)
                 {
-                    CustomerId = request.CustomerId,
-                    Name = request.Name,
-                    Email = request.Email,
-                    Address = request.Address,
-                    PhoneNumber = request.PhoneNumber
-                });
+                    customer = await _dbContext.Customers
+                    .FirstOrDefaultAsync(c => c.CustomerId == request.CustomerId);
+                    if(customer == null){
+                        throw(new Exception());//TODO: not found exception
+                    }
+                    customer.Name = request.Name;
+                    customer.Email = request.Email;
+                    customer.PhoneNumber = request.PhoneNumber;
+                    customer.Address = request.Address;
+                }
+                else{
+                    var createdCustomer = await _dbContext.Customers.AddAsync(new Entities.Customer
+                    {
+                        Name = request.Name,
+                        Email = request.Email,
+                        Address = request.Address,
+                        PhoneNumber = request.PhoneNumber
+                    });
+                    customer = createdCustomer.Entity;
+                }
+                
 
                 try
                 {
                     var result = await _dbContext.SaveChangesAsync(cancellationToken);
 
-                    return customer.Entity;
+                    return customer;
                 }
                 catch (Exception ex)
                 {
