@@ -14,11 +14,12 @@ namespace Autoshop.Api.Controllers
         /// Get a List of Customers by Name
         /// </summary>
         /// <param name="name"></param>
+        /// <param name="phoneNumber"></param>
         [HttpGet]
         [ProducesResponseType(202)]
         [ProducesResponseType(400)]
-        public async Task<ActionResult<GetCustomersResponse>> GetCustomers([FromQuery] string name = "") =>
-            Accepted(await Mediator.Send(new GetCustomers.Command { Name = name }));
+        public async Task<ActionResult<GetCustomersResponse>> GetCustomers([FromQuery] string name = "", [FromQuery] string phoneNumber = "") =>
+            Accepted(await Mediator.Send(new GetCustomers.Command { Name = name, PhoneNumber = phoneNumber }));
 
 
         [HttpGet]

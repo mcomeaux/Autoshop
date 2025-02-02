@@ -10,6 +10,7 @@ namespace Autoshop.Application.Customer
         public class Command : IRequest<List<GetCustomersResponse>>
         {
             public string Name { get; set; }
+            public string PhoneNumber { get; set; }
         }
 
         public class CommandHandler : IRequestHandler<Command, List<GetCustomersResponse>>
@@ -30,7 +31,9 @@ namespace Autoshop.Application.Customer
                 //make db call
                 List<Entities.Customer> customerList;
 
-                customerList = await _mediator.Send(new GetCustomersQuery.Command { Name = request.Name });
+                customerList = await _mediator.Send(new GetCustomersQuery.Command { 
+                    Name = request.Name,
+                    PhoneNumber = request.PhoneNumber });
 
                 //TODO: Use Mapper here
 

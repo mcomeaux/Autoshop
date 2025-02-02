@@ -9,6 +9,7 @@ namespace Autoshop.Application.Queries
         public class Command : IRequest<List<Entities.Customer>>
         {
             public string Name { get; set; }
+            public string PhoneNumber { get; set; }
         }
 
         public class CommandHandler : IRequestHandler<Command, List<Entities.Customer>>
@@ -26,7 +27,9 @@ namespace Autoshop.Application.Queries
                 
                 List<Entities.Customer> customers;
 
-                customers = await _dbContext.Customers.Where(c => c.Name.ToLower().Contains(request.Name.ToLower()))
+                customers = await _dbContext.Customers
+                    .Where(c => c.Name.ToLower().Contains(request.Name.ToLower()))
+                    .Where(c => request.PhoneNumber == "" ? true : c.PhoneNumber == request.PhoneNumber)
                         .OrderBy(c => c.Name)
                         .ToListAsync(cancellationToken: cancellationToken);
 
