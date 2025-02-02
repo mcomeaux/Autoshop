@@ -5,7 +5,7 @@ using Autoshop.Application.Customer;
 
 namespace Autoshop.Api.Controllers
 {
-    [Route("api/Customer")]
+    [Route("api/Customers")]
     [ApiController]
     public class CustomerController : ApiController
     {
@@ -14,24 +14,15 @@ namespace Autoshop.Api.Controllers
         /// Get a List of Customers by Name
         /// </summary>
         /// <param name="name"></param>
-        /// <response code="200">Returns Customers object with the following properties:
-        /// 
-        /// EmailAddress: Email Address of the customer.
-        /// Name: Name of the customer.
-        /// Address: Address of the customer.
-        /// PhoneNumber: PhoneNumber of the customer.
-        /// 
-        /// </response>
-        /// <response code="400">Bad Request: Invalid data was supplied.</response>
         [HttpGet]
-        [ProducesResponseType(200)]
+        [ProducesResponseType(202)]
         [ProducesResponseType(400)]
         public async Task<ActionResult<GetCustomersResponse>> GetCustomers([FromQuery] string name = "") =>
             Accepted(await Mediator.Send(new GetCustomers.Command { Name = name }));
 
 
         [HttpGet]
-        [ProducesResponseType(200)]
+        [ProducesResponseType(202)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
         [Route("{customerId}")]
@@ -39,12 +30,12 @@ namespace Autoshop.Api.Controllers
             Accepted(await Mediator.Send(new GetCustomer.Command { CustomerId = customerId }));
 
         [HttpPost]
-        [ProducesResponseType(200)]
+        [ProducesResponseType(202)]
         public async Task<ActionResult<GetCustomersResponse>> CreateCustomer([FromBody] CustomerRequest request) =>
             Accepted(await Mediator.Send(new CreateCustomer.Command { CreateRequest = request }));
 
         [HttpPut]
-        [ProducesResponseType(200)]
+        [ProducesResponseType(202)]
         public async Task<ActionResult<GetCustomersResponse>> UpdateCustomer([FromBody] CustomerRequest request) =>
             Accepted(await Mediator.Send(new UpdateCustomer.Command { UpdateRequest = request }));
 
