@@ -10,6 +10,7 @@
   <ItemGroup>
     <None Remove="appsettings.json" />
     <None Remove="Migrations\001_Create_Customers_Table.sql" />
+    <None Remove="Migrations\002_Create_Vehicles_Table.sql" />
     <None Remove="PostDeployment\002_Populate_Sample_Data.sql" />
   </ItemGroup>
 
@@ -21,6 +22,7 @@
 
   <ItemGroup>
     <EmbeddedResource Include="Migrations\001_Create_Customers_Table.sql" />
+    <EmbeddedResource Include="Migrations\002_Create_Vehicles_Table.sql" />
     <EmbeddedResource Include="PostDeployment\002_Populate_Sample_Data.sql" />
   </ItemGroup>
 
