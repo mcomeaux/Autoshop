@@ -7,6 +7,8 @@ namespace Autoshop.Application.Interfaces
     public interface IApplicationDbContext
     {
         public DbSet<Entities.Customer> Customers { get; set; }
+        
+        public DbSet<Entities.Vehicle> Vehicles { get; set; }
 
         Task<int> SaveChangesAsync(CancellationToken cancellationToken);
 
