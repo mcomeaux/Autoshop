@@ -34,7 +34,7 @@ namespace Autoshop.Application.Customer
                 customer = await _mediator.Send(new GetCustomerByIdQuery.Command { CustomerId = request.CustomerId });
                 if(customer == null)
                 {
-                    throw new NotFoundException("Customer with Id[" + request.CustomerId +  "] was not found.");
+                    throw new NotFoundException("Customer with Id [" + request.CustomerId +  "] was not found.");
                 }
 
                 //TODO: Use Mapper here

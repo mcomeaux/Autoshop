@@ -49,6 +49,7 @@ namespace Autoshop.Application.UnitTests.Queries
 
             ApplicationDbContext.Customers.Add(
                 new Entities.Customer { 
+                    CustomerId = customerId,
                     Name = expectedName,
                     Email = expectedEmail,
                     PhoneNumber = expectedPhoneNumber,
