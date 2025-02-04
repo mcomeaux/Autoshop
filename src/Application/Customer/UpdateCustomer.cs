@@ -2,6 +2,7 @@ using Autoshop.Application.Commands;
 using MediatR;
 using Autoshop.Application.Common.Models;
 using Microsoft.Extensions.Logging;
+using Autoshop.Application.Exceptions;
 
 namespace Autoshop.Application.Customer
 {
@@ -34,6 +35,11 @@ namespace Autoshop.Application.Customer
                     PhoneNumber = request.UpdateRequest.PhoneNumber,
                     Address = request.UpdateRequest.Address 
                 });
+
+                if(customer == null)
+                {
+                    throw new NotFoundException("Customer with Id [" + request.UpdateRequest.CustomerId +  "] was not found.");
+                }
 
                 //TODO: Use Mapper here
 

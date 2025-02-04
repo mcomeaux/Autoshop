@@ -61,12 +61,10 @@ namespace Autoshop.Application.UnitTests.Customer
 
             }
             VerifyAll();
-
-            //TODO: Check for notfound exception
         }
 
         [Test]
-        public async Task GetCustomerCommandHandler_ShouldReturnObject_WhenQuestionFound()
+        public async Task GetCustomerCommandHandler_ShouldReturnObject_WhenCustomerFound()
         {
             // Arrange
             var expectedCustomerId = 0;
