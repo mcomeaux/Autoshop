@@ -28,6 +28,7 @@ namespace Autoshop.Application.UnitTests.Commands
             _handler = new UpsertCustomerCommand.CommandHandler(ApplicationDbContext);
         }
 
+        //TODO: Add test for CustomerId Not found
 
         [Test]
         public async Task UpsertCustomerCommand_ShouldAddNewCustomer_WithValidData()

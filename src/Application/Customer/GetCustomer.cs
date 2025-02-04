@@ -31,7 +31,7 @@ namespace Autoshop.Application.Customer
                 //make db call
                 Entities.Customer customer;
 
-                customer = await _mediator.Send(new GetCustomerByIdQuery.Command { CustomerId = request.CustomerId });
+                customer = await _mediator.Send(new GetCustomerByCustomerIdQuery.Command { CustomerId = request.CustomerId });
                 if(customer == null)
                 {
                     throw new NotFoundException("Customer with Id [" + request.CustomerId +  "] was not found.");

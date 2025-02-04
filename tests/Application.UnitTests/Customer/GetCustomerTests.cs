@@ -43,7 +43,7 @@ namespace Autoshop.Application.UnitTests.Customer
             _command.CustomerId = expectedCustomerId;
 
             MediatorMock.Setup(m => m.Send(
-                It.Is<GetCustomerByIdQuery.Command>(
+                It.Is<GetCustomerByCustomerIdQuery.Command>(
                     c => c.CustomerId == expectedCustomerId)
                 , CancellationToken.None)).Returns(Task.FromResult<Entities.Customer>(null));
 
@@ -78,7 +78,7 @@ namespace Autoshop.Application.UnitTests.Customer
 
 
             MediatorMock.Setup(m => m.Send(
-                It.Is<GetCustomerByIdQuery.Command>(
+                It.Is<GetCustomerByCustomerIdQuery.Command>(
                     c => c.CustomerId == expectedCustomerId)
                 , CancellationToken.None)).Returns(Task.FromResult(
                     new Entities.Customer { 

@@ -6,24 +6,24 @@ using System.Threading;
 
 namespace Autoshop.Application.UnitTests.Queries
 {
-    public class GetCustomerByIdQueryTests : UnitTestBase
+    public class GetCustomerByCustomerIdQueryTests : UnitTestBase
     {
-        private GetCustomerByIdQuery.Command _command;
-        private GetCustomerByIdQuery.CommandHandler _handler;
+        private GetCustomerByCustomerIdQuery.Command _command;
+        private GetCustomerByCustomerIdQuery.CommandHandler _handler;
 
         [SetUp]
         public void Setup()
         {
-            _command = new GetCustomerByIdQuery.Command
+            _command = new GetCustomerByCustomerIdQuery.Command
             {
                 CustomerId = 0
             };
 
-            _handler = new GetCustomerByIdQuery.CommandHandler(ApplicationDbContext);
+            _handler = new GetCustomerByCustomerIdQuery.CommandHandler(ApplicationDbContext);
         }
 
         [Test]
-        public async Task GetCustomerByIdQuery_ShouldReturnNull_WhenTheQuestionDoesNotExist()
+        public async Task GetCustomerByCustomerIdQuery_ShouldReturnNull_WhenTheCustomerDoesNotExist()
         {
             // Arrange
             var customerId = 11;
@@ -37,7 +37,7 @@ namespace Autoshop.Application.UnitTests.Queries
         }
 
         [Test]
-        public async Task GetCustomerByIdQuery_Should_ReturnACustomer()
+        public async Task GetCustomerByCustomerIdQuery_Should_ReturnACustomer()
         {
             // Arrange
             var customerId = 11;

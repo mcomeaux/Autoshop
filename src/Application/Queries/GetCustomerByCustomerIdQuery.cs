@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 namespace Autoshop.Application.Queries
 {
 
-    public class GetCustomerByIdQuery
+    public class GetCustomerByCustomerIdQuery
     {
         public class Command : IRequest<Entities.Customer>
         {
