@@ -2,6 +2,7 @@ using Autoshop.Application.Commands;
 using MediatR;
 using Autoshop.Application.Common.Models;
 using Microsoft.Extensions.Logging;
+using Autoshop.Application.Exceptions;
 
 namespace Autoshop.Application.Vehicle
 {
@@ -36,6 +37,11 @@ namespace Autoshop.Application.Vehicle
                     Color = request.UpdateRequest.Color,
                     Description = request.UpdateRequest.Description 
                 });
+
+                if(vehicle == null)
+                {
+                    throw new NotFoundException("Vehicle with Id [" + request.UpdateRequest.VehicleId +  "] was not found.");
+                }
 
                 //TODO: Use Mapper here
 

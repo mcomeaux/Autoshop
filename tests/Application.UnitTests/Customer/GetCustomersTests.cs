@@ -57,7 +57,7 @@ namespace Autoshop.Application.UnitTests.Customer
 
         
         [Test]
-        public async Task GetCustomersCommandHandler_ShouldReturnEmptyList_WhenCustomersAreFound()
+        public async Task GetCustomersCommandHandler_ShouldReturnEmptyList_WhenNoCustomersAreFound()
         {
             // Arrange
             var name = "";
