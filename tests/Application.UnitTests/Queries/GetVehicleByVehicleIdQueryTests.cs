@@ -46,6 +46,7 @@ namespace Autoshop.Application.UnitTests.Queries
             var expectedModel = "CRX";
             var expectedYear = 1989;
             var expectedColor = "White";
+            var expectedVIN = "Test VIN";
             var expectedDescription = "Test Description";
             _command.VehicleId = vehicleId;
 
@@ -57,6 +58,7 @@ namespace Autoshop.Application.UnitTests.Queries
                     Model = expectedModel,
                     Year = expectedYear,
                     Color = expectedColor,
+                    VIN = expectedVIN,
                     Description = expectedDescription
                 });
             ApplicationDbContext.SaveChanges();
@@ -71,6 +73,7 @@ namespace Autoshop.Application.UnitTests.Queries
             result.Model.ShouldBe(expectedModel);
             result.Year.ShouldBe(expectedYear);
             result.Color.ShouldBe(expectedColor);
+            result.VIN.ShouldBe(expectedVIN);
             result.Description.ShouldBe(expectedDescription);
         }
     }

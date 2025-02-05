@@ -14,6 +14,7 @@ namespace Autoshop.Application.Commands
             public string Make { get; set; }
             public string Model { get; set; }
             public string Color { get; set; }
+            public string VIN { get; set; }
             public string Description { get; set; }
             public int Year { get; set; }
         }
@@ -40,6 +41,7 @@ namespace Autoshop.Application.Commands
                     vehicle.Model = request.Model;
                     vehicle.Year = request.Year;
                     vehicle.Color = request.Color;
+                    vehicle.VIN = request.VIN;
                     vehicle.Description = request.Description;
                 }
                 else{
@@ -50,6 +52,7 @@ namespace Autoshop.Application.Commands
                         Model = request.Model,
                         Year = request.Year,
                         Color = request.Color,
+                        VIN = request.VIN,
                         Description = request.Description,
                     });
                     vehicle = createdVehicle.Entity;

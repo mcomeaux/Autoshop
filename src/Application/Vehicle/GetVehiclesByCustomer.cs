@@ -43,6 +43,7 @@ namespace Autoshop.Application.Vehicle
                         Model = vehicle.Model,
                         Year = vehicle.Year,
                         Color = vehicle.Color,
+                        VIN = vehicle.VIN,
                         Description = vehicle.Description
                     });
                 }

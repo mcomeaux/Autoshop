@@ -9,6 +9,7 @@ namespace Autoshop.Application.Interfaces
         public DbSet<Entities.Customer> Customers { get; set; }
         
         public DbSet<Entities.Vehicle> Vehicles { get; set; }
+        public DbSet<Entities.Visit> Visits { get; set; }
 
         Task<int> SaveChangesAsync(CancellationToken cancellationToken);
 

@@ -23,6 +23,7 @@ namespace Autoshop.Application.UnitTests.Commands
                 Model = "",
                 Year = 1990,
                 Color = "",
+                VIN = "",
                 Description = ""
             };
 
@@ -42,12 +43,14 @@ namespace Autoshop.Application.UnitTests.Commands
             var expectedModel = "CRX";
             var expectedYear = 1989;
             var expectedColor = "White";
+            var expectedVIN = "Test VIN";
             var expectedDescription = "Test Description";
             _command.CustomerId = expectedCustomerId;
             _command.Make = expectedMake;
             _command.Model = expectedModel;
             _command.Year = expectedYear;
             _command.Color = expectedColor;
+            _command.VIN = expectedVIN;
             _command.Description = expectedDescription;
 
             // Act
@@ -59,6 +62,7 @@ namespace Autoshop.Application.UnitTests.Commands
             result.Model.ShouldBe(expectedModel);
             result.Year.ShouldBe(expectedYear);
             result.Color.ShouldBe(expectedColor);
+            result.VIN.ShouldBe(expectedVIN);
             result.Description.ShouldBe(expectedDescription);
 
             var savedValue = ApplicationDbContext
@@ -71,6 +75,7 @@ namespace Autoshop.Application.UnitTests.Commands
             savedValue.Model.ShouldBe(expectedModel);
             savedValue.Year.ShouldBe(expectedYear);
             savedValue.Color.ShouldBe(expectedColor);
+            savedValue.VIN.ShouldBe(expectedVIN);
             savedValue.Description.ShouldBe(expectedDescription);
         }
 
@@ -84,6 +89,7 @@ namespace Autoshop.Application.UnitTests.Commands
             var expectedModel = "CRX";
             var expectedYear = 1989;
             var expectedColor = "White";
+            var expectedVIN = "Test VIN";
             var expectedDescription = "Test Description";
             _command.VehicleId = vehicleId;
             _command.CustomerId = expectedCustomerId;
@@ -91,6 +97,7 @@ namespace Autoshop.Application.UnitTests.Commands
             _command.Model = expectedModel;
             _command.Year = expectedYear;
             _command.Color = expectedColor;
+            _command.VIN = expectedVIN;
             _command.Description = expectedDescription;
 
             ApplicationDbContext.Vehicles.Add(
@@ -101,6 +108,7 @@ namespace Autoshop.Application.UnitTests.Commands
                     Model = "",
                     Year = 1900,
                     Color = "",
+                    VIN = "",
                     Description = ""
                 });
             ApplicationDbContext.SaveChanges();
@@ -115,6 +123,7 @@ namespace Autoshop.Application.UnitTests.Commands
             result.Model.ShouldBe(expectedModel);
             result.Year.ShouldBe(expectedYear);
             result.Color.ShouldBe(expectedColor);
+            result.VIN.ShouldBe(expectedVIN);
             result.Description.ShouldBe(expectedDescription);
 
             var savedValue = ApplicationDbContext
@@ -127,6 +136,7 @@ namespace Autoshop.Application.UnitTests.Commands
             savedValue.Model.ShouldBe(expectedModel);
             savedValue.Year.ShouldBe(expectedYear);
             savedValue.Color.ShouldBe(expectedColor);
+            savedValue.VIN.ShouldBe(expectedVIN);
             savedValue.Description.ShouldBe(expectedDescription);
         }
     }

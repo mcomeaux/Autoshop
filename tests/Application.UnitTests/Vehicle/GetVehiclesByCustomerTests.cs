@@ -40,6 +40,7 @@ namespace Autoshop.Application.UnitTests.Vehicle
                     Model = "Accord",
                     Year = 2005,
                     Color = "Tan",
+                    VIN = "Test VIN1",
                     Description = "Vehicle1"
                 });
             _vehicles.Add("vehicle2", new Entities.Vehicle { 
@@ -49,6 +50,7 @@ namespace Autoshop.Application.UnitTests.Vehicle
                     Model = "Sierra 1500",
                     Year = 2024,
                     Color = "Black",
+                    VIN = "Test VIN2",
                     Description = "Vehicle2"
                 });
         }
@@ -113,6 +115,7 @@ namespace Autoshop.Application.UnitTests.Vehicle
                     && c.Model == _vehicles["vehicle1"].Model
                     && c.Year == _vehicles["vehicle1"].Year
                     && c.Color == _vehicles["vehicle1"].Color
+                    && c.VIN == _vehicles["vehicle1"].VIN
                     && c.Description == _vehicles["vehicle1"].Description
                 ).ShouldBeTrue();
             response.Any(c => 
@@ -122,6 +125,7 @@ namespace Autoshop.Application.UnitTests.Vehicle
                     && c.Model == _vehicles["vehicle2"].Model
                     && c.Year == _vehicles["vehicle2"].Year
                     && c.Color == _vehicles["vehicle2"].Color
+                    && c.VIN == _vehicles["vehicle2"].VIN
                     && c.Description == _vehicles["vehicle2"].Description
                 ).ShouldBeTrue();
         }

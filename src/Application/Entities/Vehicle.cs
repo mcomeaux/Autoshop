@@ -9,7 +9,10 @@ namespace Autoshop.Application.Entities
         public string Model { get; set; }        
         public string Color { get; set; }
         public int Year { get; set; }
+        public string VIN { get; set; }
         public string Description { get; set; }
+
+        public List<Visit> Visits { get; set; }
 
         public Customer Customer { get; set; }
     }

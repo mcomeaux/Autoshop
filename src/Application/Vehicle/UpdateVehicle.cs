@@ -35,6 +35,7 @@ namespace Autoshop.Application.Vehicle
                     Model = request.UpdateRequest.Model,
                     Year = request.UpdateRequest.Year,
                     Color = request.UpdateRequest.Color,
+                    VIN = request.UpdateRequest.VIN,
                     Description = request.UpdateRequest.Description 
                 });
 
@@ -51,6 +52,7 @@ namespace Autoshop.Application.Vehicle
                 result.Model = vehicle.Model;
                 result.Year = vehicle.Year;
                 result.Color = vehicle.Color;
+                result.VIN = vehicle.VIN;
                 result.Description = vehicle.Description;
 
                 return result;

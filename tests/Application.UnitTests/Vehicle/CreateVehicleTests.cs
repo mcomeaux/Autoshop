@@ -43,6 +43,7 @@ namespace Autoshop.Application.UnitTests.Vehicle
             var expectedModel = "CRX";
             var expectedYear = 1989;
             var expectedColor = "White";
+            var expectedVIN = "Test VIN";
             var expectedDescription = "Test Description";
             
             var vehicleRequest = new VehicleRequest{
@@ -51,6 +52,7 @@ namespace Autoshop.Application.UnitTests.Vehicle
                 Model = expectedModel,
                 Year = expectedYear,
                 Color = expectedColor,
+                VIN = expectedVIN,
                 Description = expectedDescription
             };
             _command.CreateRequest = vehicleRequest;
@@ -63,6 +65,7 @@ namespace Autoshop.Application.UnitTests.Vehicle
                     && c.Model == expectedModel
                     && c.Year == expectedYear
                     && c.Color == expectedColor
+                    && c.VIN == expectedVIN
                     && c.Description == expectedDescription)
                 , CancellationToken.None)).Returns(Task.FromResult(
                     new Entities.Vehicle { 
@@ -72,6 +75,7 @@ namespace Autoshop.Application.UnitTests.Vehicle
                         Model = expectedModel,
                         Year = expectedYear,
                         Color = expectedColor,
+                        VIN = expectedVIN,
                         Description = expectedDescription
                     }));
 
@@ -87,6 +91,7 @@ namespace Autoshop.Application.UnitTests.Vehicle
             response.Model.ShouldBe(expectedModel);
             response.Year.ShouldBe(expectedYear);
             response.Color.ShouldBe(expectedColor);
+            response.VIN.ShouldBe(expectedVIN);
             response.Description.ShouldBe(expectedDescription);
         }
     }

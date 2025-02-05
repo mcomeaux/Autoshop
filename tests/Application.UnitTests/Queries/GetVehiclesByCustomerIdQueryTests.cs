@@ -51,6 +51,7 @@ namespace Autoshop.Application.UnitTests.Queries
                 Model = "Accord",
                 Year = 2005,
                 Color = "Tan",
+                VIN = "Test VIN1",
                 Description = "Vehicle1"
             };
 
@@ -61,6 +62,7 @@ namespace Autoshop.Application.UnitTests.Queries
                 Model = "Sierra 1500",
                 Year = 2024,
                 Color = "Black",
+                VIN = "Test VIN2",
                 Description = "Vehicle2"
             };
 
