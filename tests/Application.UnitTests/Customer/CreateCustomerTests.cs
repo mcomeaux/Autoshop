@@ -40,7 +40,7 @@ namespace Autoshop.Application.UnitTests.Customer
             var expectedEmail = "test@gmail.com";
             var expectedPhoneNumber = "1231231234";
             var expectedAddress = "111 test st.";
-            var customerRequest = new CustomerRequest{
+            var customerRequest = new CustomerDto{
                 Name = expectedName,
                 Email = expectedEmail,
                 PhoneNumber = expectedPhoneNumber,

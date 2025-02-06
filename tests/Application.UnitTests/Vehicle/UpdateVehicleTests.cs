@@ -47,7 +47,7 @@ namespace Autoshop.Application.UnitTests.Vehicle
             var expectedVIN = "Test VIN";
             var expectedDescription = "Test Description";
             
-            var vehicleRequest = new VehicleRequest{
+            var vehicleRequest = new VehicleDto{
                 VehicleId = expectedVehicleId,
                 CustomerId = expectedCustomerId,
                 Make = expectedMake,
@@ -101,7 +101,7 @@ namespace Autoshop.Application.UnitTests.Vehicle
             var expectedDescription = "Test Description";
 
             
-            var vehicleRequest = new VehicleRequest{
+            var vehicleRequest = new VehicleDto{
                 VehicleId = expectedVehicleId,
                 CustomerId = expectedCustomerId,
                 Make = expectedMake,

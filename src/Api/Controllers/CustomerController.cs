@@ -18,7 +18,7 @@ namespace Autoshop.Api.Controllers
         [HttpGet]
         [ProducesResponseType(202)]
         [ProducesResponseType(400)]
-        public async Task<ActionResult<GetCustomersResponse>> GetCustomers([FromQuery] string name = "", [FromQuery] string phoneNumber = "") =>
+        public async Task<ActionResult<CustomerDto>> GetCustomers([FromQuery] string name = "", [FromQuery] string phoneNumber = "") =>
             Accepted(await Mediator.Send(new GetCustomers.Command { Name = name, PhoneNumber = phoneNumber }));
 
 
@@ -27,17 +27,17 @@ namespace Autoshop.Api.Controllers
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
         [Route("{customerId}")]
-        public async Task<ActionResult<GetCustomersResponse>> GetCustomerById([FromRoute] int customerId) =>
+        public async Task<ActionResult<CustomerDto>> GetCustomerById([FromRoute] int customerId) =>
             Accepted(await Mediator.Send(new GetCustomer.Command { CustomerId = customerId }));
 
         [HttpPost]
         [ProducesResponseType(202)]
-        public async Task<ActionResult<GetCustomersResponse>> CreateCustomer([FromBody] CustomerRequest request) =>
+        public async Task<ActionResult<CustomerDto>> CreateCustomer([FromBody] CustomerDto request) =>
             Accepted(await Mediator.Send(new CreateCustomer.Command { CreateRequest = request }));
 
         [HttpPut]
         [ProducesResponseType(202)]
-        public async Task<ActionResult<GetCustomersResponse>> UpdateCustomer([FromBody] CustomerRequest request) =>
+        public async Task<ActionResult<CustomerDto>> UpdateCustomer([FromBody] CustomerDto request) =>
             Accepted(await Mediator.Send(new UpdateCustomer.Command { UpdateRequest = request }));
 
     }

@@ -1,6 +1,6 @@
 namespace Autoshop.Application.Common.Models
 {
-    public class VehicleRequest
+    public class VehicleDto
     {
         public int? VehicleId { get; set; }
         public int CustomerId { get; set; }

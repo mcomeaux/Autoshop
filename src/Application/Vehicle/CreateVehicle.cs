@@ -7,12 +7,12 @@ namespace Autoshop.Application.Vehicle
 {
     public static class CreateVehicle
     {
-        public class Command : IRequest<GetVehiclesResponse>
+        public class Command : IRequest<VehicleDto>
         {
-            public VehicleRequest CreateRequest { get; set; }
+            public VehicleDto CreateRequest { get; set; }
         }
 
-        public class CommandHandler : IRequestHandler<Command, GetVehiclesResponse>
+        public class CommandHandler : IRequestHandler<Command, VehicleDto>
         {
             private readonly IMediator _mediator;
             private readonly ILogger<CommandHandler> _logger;
@@ -23,10 +23,8 @@ namespace Autoshop.Application.Vehicle
                 _logger = logger;
             }
 
-            public async Task<GetVehiclesResponse> Handle(Command request, CancellationToken cancellationToken)
+            public async Task<VehicleDto> Handle(Command request, CancellationToken cancellationToken)
             {
-                GetVehiclesResponse result = new GetVehiclesResponse();
-
                 Entities.Vehicle vehicle = await _mediator.Send(new UpsertVehicleCommand.Command { 
                     CustomerId = request.CreateRequest.CustomerId,
                     Make = request.CreateRequest.Make,
@@ -37,18 +35,7 @@ namespace Autoshop.Application.Vehicle
                     Description = request.CreateRequest.Description 
                 });
 
-                //TODO: Use Mapper here
-
-                result.VehicleId = vehicle.VehicleId;
-                result.CustomerId = vehicle.CustomerId;
-                result.Make = vehicle.Make;
-                result.Model = vehicle.Model;
-                result.Year = vehicle.Year;
-                result.Color = vehicle.Color;
-                result.VIN = vehicle.VIN;
-                result.Description = vehicle.Description;
-
-                return result;
+                return vehicle.ToVehicleDto();
             }
         }
     }

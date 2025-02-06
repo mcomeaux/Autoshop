@@ -7,12 +7,12 @@ namespace Autoshop.Application.Vehicle
 {
     public static class GetVehiclesByCustomer
     {
-        public class Command : IRequest<List<GetVehiclesResponse>>
+        public class Command : IRequest<List<VehicleDto>>
         {
             public int CustomerId { get; set; }
         }
 
-        public class CommandHandler : IRequestHandler<Command, List<GetVehiclesResponse>>
+        public class CommandHandler : IRequestHandler<Command, List<VehicleDto>>
         {
             private readonly IMediator _mediator;
             private readonly ILogger<CommandHandler> _logger;
@@ -23,29 +23,18 @@ namespace Autoshop.Application.Vehicle
                 _logger = logger;
             }
 
-            public async Task<List<GetVehiclesResponse>> Handle(Command request, CancellationToken cancellationToken)
+            public async Task<List<VehicleDto>> Handle(Command request, CancellationToken cancellationToken)
             {
-                List<GetVehiclesResponse> result = new List<GetVehiclesResponse>();
+                List<VehicleDto> result = new List<VehicleDto>();
 
                 //make db call
                 List<Entities.Vehicle> vehicleList;
 
                 vehicleList = await _mediator.Send(new GetVehiclesByCustomerIdQuery.Command { CustomerId = request.CustomerId });
 
-                //TODO: Use Mapper here
-
                 foreach(var vehicle in vehicleList)
                 {
-                    result.Add(new GetVehiclesResponse {
-                        VehicleId = vehicle.VehicleId,
-                        CustomerId = vehicle.CustomerId,
-                        Make = vehicle.Make,
-                        Model = vehicle.Model,
-                        Year = vehicle.Year,
-                        Color = vehicle.Color,
-                        VIN = vehicle.VIN,
-                        Description = vehicle.Description
-                    });
+                    result.Add(vehicle.ToVehicleDto());
                 }
 
                 return result;

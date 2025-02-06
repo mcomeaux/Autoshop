@@ -7,13 +7,13 @@ namespace Autoshop.Application.Customer
 {
     public static class GetCustomers
     {
-        public class Command : IRequest<List<GetCustomersResponse>>
+        public class Command : IRequest<List<CustomerDto>>
         {
             public string Name { get; set; }
             public string PhoneNumber { get; set; }
         }
 
-        public class CommandHandler : IRequestHandler<Command, List<GetCustomersResponse>>
+        public class CommandHandler : IRequestHandler<Command, List<CustomerDto>>
         {
             private readonly IMediator _mediator;
             private readonly ILogger<CommandHandler> _logger;
@@ -24,9 +24,9 @@ namespace Autoshop.Application.Customer
                 _logger = logger;
             }
 
-            public async Task<List<GetCustomersResponse>> Handle(Command request, CancellationToken cancellationToken)
+            public async Task<List<CustomerDto>> Handle(Command request, CancellationToken cancellationToken)
             {
-                List<GetCustomersResponse> result = new List<GetCustomersResponse>();
+                List<CustomerDto> result = new List<CustomerDto>();
 
                 //make db call
                 List<Entities.Customer> customerList;
@@ -35,17 +35,9 @@ namespace Autoshop.Application.Customer
                     Name = request.Name,
                     PhoneNumber = request.PhoneNumber });
 
-                //TODO: Use Mapper here
-
                 foreach(var customer in customerList)
                 {
-                    result.Add(new GetCustomersResponse {
-                        CustomerId = customer.CustomerId,
-                        Name = customer.Name,
-                        Email = customer.Email,
-                        Address = customer.Address,
-                        PhoneNumber = customer.PhoneNumber
-                    });
+                    result.Add(customer.ToCustomerDto());
                 }
 
                 return result;

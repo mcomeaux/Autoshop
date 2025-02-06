@@ -7,12 +7,12 @@ namespace Autoshop.Application.Customer
 {
     public static class CreateCustomer
     {
-        public class Command : IRequest<GetCustomersResponse>
+        public class Command : IRequest<CustomerDto>
         {
-            public CustomerRequest CreateRequest { get; set; }
+            public CustomerDto CreateRequest { get; set; }
         }
 
-        public class CommandHandler : IRequestHandler<Command, GetCustomersResponse>
+        public class CommandHandler : IRequestHandler<Command, CustomerDto>
         {
             private readonly IMediator _mediator;
             private readonly ILogger<CommandHandler> _logger;
@@ -23,10 +23,8 @@ namespace Autoshop.Application.Customer
                 _logger = logger;
             }
 
-            public async Task<GetCustomersResponse> Handle(Command request, CancellationToken cancellationToken)
+            public async Task<CustomerDto> Handle(Command request, CancellationToken cancellationToken)
             {
-                GetCustomersResponse result = new GetCustomersResponse();
-
                 Entities.Customer customer = await _mediator.Send(new UpsertCustomerCommand.Command { 
                     Name = request.CreateRequest.Name,
                     Email = request.CreateRequest.Email,
@@ -34,15 +32,7 @@ namespace Autoshop.Application.Customer
                     Address = request.CreateRequest.Address 
                 });
 
-                //TODO: Use Mapper here
-
-                result.CustomerId = customer.CustomerId;
-                result.Name = customer.Name;
-                result.Email = customer.Email;
-                result.Address = customer.Address;
-                result.PhoneNumber = customer.PhoneNumber;
-
-                return result;
+                return customer.ToCustomerDto();
             }
         }
     }

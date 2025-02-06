@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Autoshop.Application.Common.Models
 {
-    public class CustomerRequest
+    public class CustomerDto
     {
         public int? CustomerId { get; set; }
         public string Name { get; set; }
