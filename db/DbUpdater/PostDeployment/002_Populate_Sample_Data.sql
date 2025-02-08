@@ -17,6 +17,7 @@ INSERT INTO [Vehicles] (
     [Year],
     [Color],
     [Description],
+    [VIN],
     [CustomerId]
 ) VALUES (
     'Honda',
@@ -24,5 +25,6 @@ INSERT INTO [Vehicles] (
     1991,
     'Blue',
     'Car is setup for Autocross',
+    '',
     1
 );

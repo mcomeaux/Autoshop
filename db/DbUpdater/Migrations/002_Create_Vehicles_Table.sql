@@ -5,7 +5,7 @@ CREATE TABLE [Vehicles]
     [Model] NVARCHAR(50) NOT NULL,
     [Year] INTEGER NOT NULL,
     [Color] NVARCHAR(50) NOT NULL,
-    [VIN] NVARCHAR(50) NOT NULL,
+    [VIN] NVARCHAR(50) NULL,
     [Description] NVARCHAR(5000),
     [CustomerId] INTEGER NOT NULL,
     CONSTRAINT 'FK_Vehicles_Customers' FOREIGN KEY(CustomerId) REFERENCES Customers(CustomerId)
