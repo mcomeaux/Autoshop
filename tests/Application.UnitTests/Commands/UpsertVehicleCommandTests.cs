@@ -57,7 +57,7 @@ namespace Autoshop.Application.UnitTests.Commands
             var result = await _handler.Handle(_command, CancellationToken.None);
 
             // Assert
-            result.CustomerId = expectedCustomerId;
+            result.CustomerId.ShouldBe(expectedCustomerId);
             result.Make.ShouldBe(expectedMake);
             result.Model.ShouldBe(expectedModel);
             result.Year.ShouldBe(expectedYear);

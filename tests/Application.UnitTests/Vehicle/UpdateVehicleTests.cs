@@ -32,7 +32,6 @@ namespace Autoshop.Application.UnitTests.Vehicle
             _logger.VerifyAll();
         }
 
-        //TODO: Add test for UpdateCustomer when CustomerId doesnt exist
 
         [Test]
         public async Task UpdateVehicleCommandHandler_ShouldThrowNotFound_WhenVehicleNotFound()

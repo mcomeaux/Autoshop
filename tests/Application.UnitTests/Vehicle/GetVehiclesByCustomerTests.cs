@@ -86,7 +86,7 @@ namespace Autoshop.Application.UnitTests.Vehicle
         }
 
         [Test]
-        public async Task GetVehiclesByCustomerCommandHandler_ShouldAListOdCustomerResponseObjects_WhenVehiclesAreFound()
+        public async Task GetVehiclesByCustomerCommandHandler_ShouldReturnAListOfVehicleObjects_WhenVehiclesAreFound()
         {
             // Arrange
             var customerId = 1;

@@ -16,7 +16,7 @@ namespace Autoshop.Api.Controllers
         [ProducesResponseType(202)]
         [ProducesResponseType(400)]
         [Route("api/Visits/Active")]
-        public async Task<ActionResult<VehicleDto>> GetActiveVisitList() =>
+        public async Task<ActionResult<VisitDto>> GetActiveVisitList() =>
             Accepted(await Mediator.Send(new GetActiveVisits.Command {  }));
 
         [HttpPost]
@@ -24,10 +24,10 @@ namespace Autoshop.Api.Controllers
         public async Task<ActionResult<VisitDto>> CreateVisit([FromBody] VisitDto request) =>
             Accepted(await Mediator.Send(new CreateVisit.Command { CreateRequest = request }));
 
-        // [HttpPut]
-        // [ProducesResponseType(202)]
-        // public async Task<ActionResult<VehicleDto>> UpdateVehicle([FromBody] VehicleDto request) =>
-        //     Accepted(await Mediator.Send(new UpdateVehicle.Command { UpdateRequest = request }));
+         [HttpPut]
+         [ProducesResponseType(202)]
+         public async Task<ActionResult<VisitDto>> UpdateVisit([FromBody] VisitDto request) =>
+             Accepted(await Mediator.Send(new UpdateVisit.Command { UpdateRequest = request }));
 
 
     }
