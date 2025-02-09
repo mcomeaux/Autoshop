@@ -11,6 +11,8 @@ namespace Autoshop.Application.Customer
         {
             public string Name { get; set; }
             public string PhoneNumber { get; set; }
+            public int? Page { get; set; }
+            public int? PageSize { get; set; }
         }
 
         public class CommandHandler : IRequestHandler<Command, List<CustomerDto>>
@@ -33,7 +35,9 @@ namespace Autoshop.Application.Customer
 
                 customerList = await _mediator.Send(new GetCustomersQuery.Command { 
                     Name = request.Name,
-                    PhoneNumber = request.PhoneNumber });
+                    PhoneNumber = request.PhoneNumber,
+                    Page = request.Page,
+                    PageSize = request.PageSize });
 
                 foreach(var customer in customerList)
                 {

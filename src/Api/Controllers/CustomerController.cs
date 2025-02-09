@@ -18,8 +18,8 @@ namespace Autoshop.Api.Controllers
         [HttpGet]
         [ProducesResponseType(202)]
         [ProducesResponseType(400)]
-        public async Task<ActionResult<CustomerDto>> GetCustomers([FromQuery] string name = "", [FromQuery] string phoneNumber = "") =>
-            Accepted(await Mediator.Send(new GetCustomers.Command { Name = name, PhoneNumber = phoneNumber }));
+        public async Task<ActionResult<CustomerDto>> GetCustomers([FromQuery] string name = "", [FromQuery] string phoneNumber = "", [FromQuery] int? page = null, [FromQuery] int? pageSize = null) =>
+            Accepted(await Mediator.Send(new GetCustomers.Command { Name = name, PhoneNumber = phoneNumber, Page = page, PageSize = pageSize }));
 
 
         [HttpGet]

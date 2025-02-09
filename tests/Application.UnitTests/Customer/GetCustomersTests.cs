@@ -86,8 +86,12 @@ namespace Autoshop.Application.UnitTests.Customer
             // Arrange
             var expectedName = "";
             var expectedPhoneNumber = "";
+            var page = 1;
+            var pageSize = 2;
             _command.Name = expectedName;
             _command.PhoneNumber = expectedPhoneNumber;
+            _command.Page = page;
+            _command.PageSize = pageSize;
 
             var customerList = new List<Entities.Customer>();
             customerList.Add(_customers["customer1"]);
@@ -96,7 +100,9 @@ namespace Autoshop.Application.UnitTests.Customer
             MediatorMock.Setup(m => m.Send(
                 It.Is<GetCustomersQuery.Command>(
                     c => c.Name == expectedName
-                    && c.PhoneNumber == expectedPhoneNumber)
+                    && c.PhoneNumber == expectedPhoneNumber
+                    && c.Page == page
+                    && c.PageSize == pageSize)
                 , CancellationToken.None)).Returns(Task.FromResult(customerList));
 
 
