@@ -10,5 +10,6 @@ namespace Autoshop.Application.Entities
         public string Description { get; set; }
 
         public Vehicle Vehicle { get; set; }
+        public Invoice Invoice { get; set; }
     }
 }

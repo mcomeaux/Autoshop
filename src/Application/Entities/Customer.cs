@@ -10,5 +10,6 @@ namespace Autoshop.Application.Entities
         public string? Address { get; set; }
 
         public List<Vehicle> Vehicles { get; set; }
+        public List<Invoice> Invoices { get; set; }
     }
 }

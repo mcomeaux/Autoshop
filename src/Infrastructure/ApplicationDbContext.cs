@@ -22,6 +22,7 @@ namespace Autoshop.Infrastructure
         
         public DbSet<Vehicle> Vehicles { get; set; }
         public DbSet<Visit> Visits { get; set; }
+        public DbSet<Invoice> Invoices { get; set; }
 
         //public DbSet<CustomerUpdateRequest> CustomerUpdateRequests { get; set; }
         //public DbSet<CustomerUpdateJob> CustomerUpdateJobs { get; set; }

@@ -62,6 +62,11 @@ namespace Autoshop.Application.Commands
                     throw;
                 }
             }
+
+            private int CleansePhoneNumber(string phoneNumber)
+            {
+                return int.Parse(new string(phoneNumber.Where(c => char.IsDigit(c)).ToArray()));
+            }
         }
     }
 }
