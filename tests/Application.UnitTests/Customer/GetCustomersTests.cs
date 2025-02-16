@@ -19,10 +19,10 @@ namespace Autoshop.Application.UnitTests.Customer
 {
     public class GetCustomersTests : UnitTestBase
     {
-        private GetCustomers.Command _command;
-        private GetCustomers.CommandHandler _handler;
-        private Mock<ILogger<GetCustomers.CommandHandler>> _logger;
-        private static Dictionary<string, Entities.Customer> _customers;
+        private GetCustomers.Command _command = null!;
+        private GetCustomers.CommandHandler _handler = null!;
+        private Mock<ILogger<GetCustomers.CommandHandler>> _logger = null!;
+        private static Dictionary<string, Entities.Customer> _customers = null!;
 
         [SetUp]
         public void Setup()

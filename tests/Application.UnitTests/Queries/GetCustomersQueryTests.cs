@@ -11,10 +11,10 @@ namespace Autoshop.Application.UnitTests.Queries
 {
     public class GetCustomersQueryTests : UnitTestBase
     {
-        private GetCustomersQuery.Command _command;
-        private GetCustomersQuery.CommandHandler _handler;
+        private GetCustomersQuery.Command _command = null!;
+        private GetCustomersQuery.CommandHandler _handler = null!;
 
-        private static Dictionary<string, Entities.Customer> _customers;
+        private static Dictionary<string, Entities.Customer> _customers = null!;
 
         [SetUp]
         public void Setup()

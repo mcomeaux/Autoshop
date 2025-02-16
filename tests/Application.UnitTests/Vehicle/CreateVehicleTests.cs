@@ -12,9 +12,9 @@ namespace Autoshop.Application.UnitTests.Vehicle
 {
     public class CreateVehicleTests : UnitTestBase
     {
-        private CreateVehicle.Command _command;
-        private CreateVehicle.CommandHandler _handler;
-        private Mock<ILogger<CreateVehicle.CommandHandler>> _logger;
+        private CreateVehicle.Command _command = null!;
+        private CreateVehicle.CommandHandler _handler = null!;
+        private Mock<ILogger<CreateVehicle.CommandHandler>> _logger = null!;
 
         [SetUp]
         public void Setup()

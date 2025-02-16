@@ -9,8 +9,8 @@ namespace Autoshop.Application.UnitTests.Queries
 {
     public class GetInvoicesByCustomerIdQueryTests : UnitTestBase
     {
-        private GetInvoicesByCustomerIdQuery.Command _command;
-        private GetInvoicesByCustomerIdQuery.CommandHandler _handler;
+        private GetInvoicesByCustomerIdQuery.Command _command = null!;
+        private GetInvoicesByCustomerIdQuery.CommandHandler _handler = null!;
 
         [SetUp]
         public void Setup()

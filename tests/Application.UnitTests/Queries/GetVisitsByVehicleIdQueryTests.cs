@@ -9,8 +9,8 @@ namespace Autoshop.Application.UnitTests.Queries
 {
     public class GetVisitsByVehicleIdQueryTests : UnitTestBase
     {
-        private GetVisitsByVehicleIdQuery.Command _command;
-        private GetVisitsByVehicleIdQuery.CommandHandler _handler;
+        private GetVisitsByVehicleIdQuery.Command _command = null!;
+        private GetVisitsByVehicleIdQuery.CommandHandler _handler = null!;
 
         [SetUp]
         public void Setup()

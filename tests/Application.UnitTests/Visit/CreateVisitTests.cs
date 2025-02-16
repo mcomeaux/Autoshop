@@ -13,9 +13,9 @@ namespace Autoshop.Application.UnitTests.Visit
 {
     public class CreateVisitTests : UnitTestBase
     {
-        private CreateVisit.Command _command;
-        private CreateVisit.CommandHandler _handler;
-        private Mock<ILogger<CreateVisit.CommandHandler>> _logger;
+        private CreateVisit.Command _command = null!;
+        private CreateVisit.CommandHandler _handler = null!;
+        private Mock<ILogger<CreateVisit.CommandHandler>> _logger = null!;
 
         [SetUp]
         public void Setup()

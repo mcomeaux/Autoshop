@@ -11,8 +11,8 @@ namespace Autoshop.Application.UnitTests.Commands
 {
     public class UpsertVisitCommandTests : UnitTestBase
     {
-        private UpsertVisitCommand.Command _command;
-        private UpsertVisitCommand.CommandHandler _handler;
+        private UpsertVisitCommand.Command _command = null!;
+        private UpsertVisitCommand.CommandHandler _handler = null!;
 
         [SetUp]
         public void Setup()

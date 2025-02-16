@@ -12,9 +12,9 @@ namespace Autoshop.Application.UnitTests.Customer
 {
     public class CreateCustomerTests : UnitTestBase
     {
-        private CreateCustomer.Command _command;
-        private CreateCustomer.CommandHandler _handler;
-        private Mock<ILogger<CreateCustomer.CommandHandler>> _logger;
+        private CreateCustomer.Command _command = null!;
+        private CreateCustomer.CommandHandler _handler = null!;
+        private Mock<ILogger<CreateCustomer.CommandHandler>> _logger = null!;
 
         [SetUp]
         public void Setup()

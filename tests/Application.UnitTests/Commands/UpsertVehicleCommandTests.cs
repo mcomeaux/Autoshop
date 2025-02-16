@@ -10,8 +10,8 @@ namespace Autoshop.Application.UnitTests.Commands
 {
     public class UpsertVehicleCommandTests : UnitTestBase
     {
-        private UpsertVehicleCommand.Command _command;
-        private UpsertVehicleCommand.CommandHandler _handler;
+        private UpsertVehicleCommand.Command _command = null!;
+        private UpsertVehicleCommand.CommandHandler _handler = null!;
 
         [SetUp]
         public void Setup()

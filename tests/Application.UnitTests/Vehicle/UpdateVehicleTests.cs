@@ -13,9 +13,9 @@ namespace Autoshop.Application.UnitTests.Vehicle
 {
     public class UpdateVehicleTests : UnitTestBase
     {
-        private UpdateVehicle.Command _command;
-        private UpdateVehicle.CommandHandler _handler;
-        private Mock<ILogger<UpdateVehicle.CommandHandler>> _logger;
+        private UpdateVehicle.Command _command = null!;
+        private UpdateVehicle.CommandHandler _handler = null!;
+        private Mock<ILogger<UpdateVehicle.CommandHandler>> _logger = null!;
 
         [SetUp]
         public void Setup()

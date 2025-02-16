@@ -19,10 +19,10 @@ namespace Autoshop.Application.UnitTests.Visit
 {
     public class GetActiveVisitsTests : UnitTestBase
     {
-        private GetActiveVisits.Command _command;
-        private GetActiveVisits.CommandHandler _handler;
-        private Mock<ILogger<GetActiveVisits.CommandHandler>> _logger;
-        private static Dictionary<string, Entities.Visit> _visits;
+        private GetActiveVisits.Command _command = null!;
+        private GetActiveVisits.CommandHandler _handler = null!;
+        private Mock<ILogger<GetActiveVisits.CommandHandler>> _logger = null!;
+        private static Dictionary<string, Entities.Visit> _visits = null!;
 
         [SetUp]
         public void Setup()
