@@ -128,10 +128,11 @@ namespace Autoshop.DbUpdater
                     return 2;  //Failed on 2nd step.  Migrations scripts
                 }
 
-                if (!UpgradeAndLog(postdeployUpgrader, environment))
-                {
-                    return 3;  //Failed on 3rd step.  Post-deploymnent scripts
-                }
+                //skip post deploy step
+                // if (!UpgradeAndLog(postdeployUpgrader, environment))
+                // {
+                //     return 3;  //Failed on 3rd step.  Post-deploymnent scripts
+                // }
 
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("Success!");

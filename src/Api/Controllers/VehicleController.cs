@@ -16,17 +16,19 @@ namespace Autoshop.Api.Controllers
         [HttpGet]
         [ProducesResponseType(202)]
         [ProducesResponseType(400)]
-        [Route("api/Customers/{customerId}/Vehicles")]
+        [Route("Customers/{customerId}/Vehicles")]
         public async Task<ActionResult<VehicleDto>> GetVehicleListByCustomer([FromRoute] int customerId) =>
             Accepted(await Mediator.Send(new GetVehiclesByCustomer.Command { CustomerId = customerId }));
 
         [HttpPost]
         [ProducesResponseType(202)]
+        [Route("Vehicles")]
         public async Task<ActionResult<VehicleDto>> CreateVehicle([FromBody] VehicleDto request) =>
             Accepted(await Mediator.Send(new CreateVehicle.Command { CreateRequest = request }));
 
         [HttpPut]
         [ProducesResponseType(202)]
+        [Route("Vehicles")]
         public async Task<ActionResult<VehicleDto>> UpdateVehicle([FromBody] VehicleDto request) =>
             Accepted(await Mediator.Send(new UpdateVehicle.Command { UpdateRequest = request }));
 

@@ -6,6 +6,7 @@ using Autoshop.Application.Visit;
 namespace Autoshop.Api.Controllers
 {
     [ApiController]
+    [Route("api/Visits")]
     public class VisitController : ApiController
     {
         
@@ -15,7 +16,7 @@ namespace Autoshop.Api.Controllers
         [HttpGet]
         [ProducesResponseType(202)]
         [ProducesResponseType(400)]
-        [Route("api/Visits/Active")]
+        [Route("Active")]
         public async Task<ActionResult<VisitDto>> GetActiveVisitList() =>
             Accepted(await Mediator.Send(new GetActiveVisits.Command {  }));
 

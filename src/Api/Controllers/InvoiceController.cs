@@ -5,7 +5,7 @@ using Autoshop.Application.Invoice;
 
 namespace Autoshop.Api.Controllers
 {
-    [ApiController]
+    [ApiController]    
     public class InvoiceController : ApiController
     {
         [HttpGet]
@@ -17,11 +17,13 @@ namespace Autoshop.Api.Controllers
 
         [HttpPost]
         [ProducesResponseType(202)]
+        [Route("api/Invoices")]
         public async Task<ActionResult<VisitDto>> CreateInvoice([FromBody] InvoiceDto request) =>
             Accepted(await Mediator.Send(new CreateInvoice.Command { CreateRequest = request }));
 
          [HttpPut]
          [ProducesResponseType(202)]
+         [Route("api/Invoices")]
          public async Task<ActionResult<VisitDto>> UpdateInvoice([FromBody] InvoiceDto request) =>
              Accepted(await Mediator.Send(new UpdateInvoice.Command { UpdateRequest = request }));
 

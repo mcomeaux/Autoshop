@@ -9,7 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 namespace Autoshop.Api.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api")]
     public abstract class ApiController : ControllerBase
     {
         private IMediator _mediator;
