@@ -30,6 +30,7 @@ namespace Autoshop.Application.Commands
             public async Task<Entities.Invoice> Handle(Command request, CancellationToken cancellationToken)
             {
                 //TODO: Don't allow insert of duplicate VisitIds
+                //TODO: If VisitId does not exist return notfound exception
                 Entities.Invoice invoice;
                 if(request.InvoiceId != null)
                 {
