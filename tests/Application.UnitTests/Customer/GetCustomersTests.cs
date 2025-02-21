@@ -55,6 +55,8 @@ namespace Autoshop.Application.UnitTests.Customer
             _logger.VerifyAll();
         }
 
+        //TODO: Add tests for Get Customers Pagination
+
         
         [Test]
         public async Task GetCustomersCommandHandler_ShouldReturnEmptyList_WhenNoCustomersAreFound()

@@ -8,6 +8,9 @@ The solution uses the mediator pattern extensively with CQRS for the database qu
 The Api project contains all of the endpoints and the Application project contains all of the methods and queries
 The Infrastructure project facilitates some of the setup required for Entity Framework
 
+The launchsettings.json is currently configured to run on http://localhost:5053
+You can view the swagger docs at http://localhost:5053/swagger/index.html
+
 ## Autoshop DB
 To Create and populate the database, Create a new database named Autoshop.
 Edit the appsettings file under the dbUpdater project and point the connection string at the new DB you just created.
