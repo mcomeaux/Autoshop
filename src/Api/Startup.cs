@@ -22,6 +22,7 @@ namespace Autoshop.Api
         {
             services.AddMemoryCache();
 
+
             services.AddOptions();
             services.AddResponseCaching();
 
@@ -69,6 +70,11 @@ namespace Autoshop.Api
             app.UseStaticFiles();
             app.UseOpenApi();
             app.UseSwaggerUi();
+
+            app.UseCors(builder => builder
+            .AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader());
             
             
 
